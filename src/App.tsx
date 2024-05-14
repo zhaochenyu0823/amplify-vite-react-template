@@ -29,9 +29,6 @@ function App() {
   }
 
   return (
-        
-    <Authenticator>
-      {({ signOut, user }) => (
     <main>
       <h1>My todos</h1>
       <button onClick={createTodo}>+ new</button>
@@ -44,11 +41,7 @@ function App() {
             </li>
         ))}
       </ul>
-      <button onClick={signOut}>Sign out</button>
     </main>
-        
-      )}
-      </Authenticator>
   );
 }
 
