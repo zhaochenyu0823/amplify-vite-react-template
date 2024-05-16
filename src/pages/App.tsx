@@ -1,19 +1,11 @@
 import { useEffect, useState } from "react";
-import type { Schema } from "../amplify/data/resource";
+import type { Schema } from "../../amplify/data/resource.js";
 import { generateClient } from "aws-amplify/data";
-import { Authenticator } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
-import './i18n/Japanese.js'; 
-
-
-
-
+import '../i18n/Japanese.js';
 
 const client = generateClient<Schema>();
-
 function App() {
-
-  
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
 
   useEffect(() => {
@@ -26,32 +18,24 @@ function App() {
     client.models.Todo.create({ content: window.prompt("Todo content") });
   }
 
-    
   function deleteTodo(id: string) {
     client.models.Todo.delete({ id })
   }
-
   return (
-        
-    <Authenticator>
-      {({ signOut }) => (
-    <main>
+    <div>
       <h1>My todos</h1>
       <button onClick={createTodo}>+ new</button>
       <ul>
         {todos.map((todo) => (
-          <li 
-          onClick={() => deleteTodo(todo.id)}
-          key={todo.id}>
+          <li
+            onClick={() => deleteTodo(todo.id)}
+            key={todo.id}>
             {todo.content}
-            </li>
+          </li>
         ))}
       </ul>
-      <button onClick={signOut}>Sign out</button>
-    </main>
-        
-      )}
-      </Authenticator>
+    </div>
+
   );
 }
 
