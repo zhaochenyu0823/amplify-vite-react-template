@@ -29,7 +29,7 @@ const NavBar = () => {
           <Breadcrumbs.Item>
             <Breadcrumbs.Separator />
             <Breadcrumbs.Link href='/app' >
-              ButtonApp
+              ButtonAppNew
             </Breadcrumbs.Link>
             <Breadcrumbs.Separator />
           </Breadcrumbs.Item>
