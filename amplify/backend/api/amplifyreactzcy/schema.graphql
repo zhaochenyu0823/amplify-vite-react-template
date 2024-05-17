@@ -1,0 +1,7 @@
+type UserAddress @model {
+  id: ID!
+  name: String!
+  phone: String
+  address: String
+  email: String
+}
