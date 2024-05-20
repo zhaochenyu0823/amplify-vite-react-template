@@ -1,9 +1,9 @@
 {
   "auth": {
-    "user_pool_id": "ap-northeast-1_TgauJkYkY",
+    "user_pool_id": "ap-northeast-1_y9tKr6sAu",
     "aws_region": "ap-northeast-1",
-    "user_pool_client_id": "637ueu71i1ik6d357misaan91e",
-    "identity_pool_id": "ap-northeast-1:e7699717-2d39-4f3c-b68f-db36b974c8cd",
+    "user_pool_client_id": "28bkcr01bhnrs5nnv4uc8v4g89",
+    "identity_pool_id": "ap-northeast-1:6b5a68b2-8453-43e2-9689-59f78e3462c4",
     "standard_required_attributes": [
       "email"
     ],
