@@ -25,11 +25,12 @@
       "AmplifyAppId": "d2w0t02mme5rao"
     },
     "categories": {
-      "auth": {
-        "amplifyreactzcy4ed390ed": {}
-      },
       "api": {
         "amplifyreactzcy": {}
+      },
+      "auth": {
+        "amplifyreactzcyd2236060": {},
+        "amplifyreactzcyd12ca2e9": {}
       }
     }
   }

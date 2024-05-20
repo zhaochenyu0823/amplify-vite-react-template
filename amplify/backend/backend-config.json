@@ -18,7 +18,7 @@
     }
   },
   "auth": {
-    "amplifyreactzcy4ed390ed": {
+    "amplifyreactzcyd12ca2e9": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -34,9 +34,7 @@
           "EMAIL"
         ],
         "socialProviders": [],
-        "usernameAttributes": [
-          "EMAIL"
-        ],
+        "usernameAttributes": [],
         "verificationMechanisms": [
           "EMAIL"
         ]
