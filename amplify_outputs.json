@@ -51,6 +51,13 @@
               "isRequired": false,
               "attributes": []
             },
+            "name": {
+              "name": "name",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
             "createdAt": {
               "name": "createdAt",
               "isArray": false,
@@ -98,10 +105,251 @@
             "primaryKeyFieldName": "id",
             "sortKeyFieldNames": []
           }
+        },
+        "Customer": {
+          "name": "Customer",
+          "fields": {
+            "customerId": {
+              "name": "customerId",
+              "isArray": false,
+              "type": "ID",
+              "isRequired": true,
+              "attributes": []
+            },
+            "name": {
+              "name": "name",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "location": {
+              "name": "location",
+              "isArray": false,
+              "type": {
+                "nonModel": "CustomerLocation"
+              },
+              "isRequired": false,
+              "attributes": []
+            },
+            "engagementStage": {
+              "name": "engagementStage",
+              "isArray": false,
+              "type": {
+                "enum": "CustomerEngagementStage"
+              },
+              "isRequired": false,
+              "attributes": []
+            },
+            "collectionId": {
+              "name": "collectionId",
+              "isArray": false,
+              "type": "ID",
+              "isRequired": false,
+              "attributes": []
+            },
+            "collection": {
+              "name": "collection",
+              "isArray": false,
+              "type": {
+                "model": "Collection"
+              },
+              "isRequired": false,
+              "attributes": [],
+              "association": {
+                "connectionType": "BELONGS_TO",
+                "targetNames": [
+                  "collectionId"
+                ]
+              }
+            },
+            "createdAt": {
+              "name": "createdAt",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": [],
+              "isReadOnly": true
+            },
+            "updatedAt": {
+              "name": "updatedAt",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": [],
+              "isReadOnly": true
+            }
+          },
+          "syncable": true,
+          "pluralName": "Customers",
+          "attributes": [
+            {
+              "type": "model",
+              "properties": {}
+            },
+            {
+              "type": "key",
+              "properties": {
+                "fields": [
+                  "customerId"
+                ]
+              }
+            },
+            {
+              "type": "auth",
+              "properties": {
+                "rules": [
+                  {
+                    "allow": "public",
+                    "provider": "apiKey",
+                    "operations": [
+                      "create",
+                      "update",
+                      "delete",
+                      "read"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "primaryKeyInfo": {
+            "isCustomPrimaryKey": true,
+            "primaryKeyFieldName": "customerId",
+            "sortKeyFieldNames": []
+          }
+        },
+        "Collection": {
+          "name": "Collection",
+          "fields": {
+            "id": {
+              "name": "id",
+              "isArray": false,
+              "type": "ID",
+              "isRequired": true,
+              "attributes": []
+            },
+            "customers": {
+              "name": "customers",
+              "isArray": true,
+              "type": {
+                "model": "Customer"
+              },
+              "isRequired": false,
+              "attributes": [],
+              "isArrayNullable": true,
+              "association": {
+                "connectionType": "HAS_MANY",
+                "associatedWith": [
+                  "collectionId"
+                ]
+              }
+            },
+            "tags": {
+              "name": "tags",
+              "isArray": true,
+              "type": "String",
+              "isRequired": false,
+              "attributes": [],
+              "isArrayNullable": true
+            },
+            "representativeId": {
+              "name": "representativeId",
+              "isArray": false,
+              "type": "ID",
+              "isRequired": true,
+              "attributes": []
+            },
+            "createdAt": {
+              "name": "createdAt",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": [],
+              "isReadOnly": true
+            },
+            "updatedAt": {
+              "name": "updatedAt",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": [],
+              "isReadOnly": true
+            }
+          },
+          "syncable": true,
+          "pluralName": "Collections",
+          "attributes": [
+            {
+              "type": "model",
+              "properties": {}
+            },
+            {
+              "type": "key",
+              "properties": {
+                "name": "collectionsByRepresentativeId",
+                "queryField": "listCollectionByRepresentativeId",
+                "fields": [
+                  "representativeId"
+                ]
+              }
+            },
+            {
+              "type": "auth",
+              "properties": {
+                "rules": [
+                  {
+                    "allow": "public",
+                    "provider": "apiKey",
+                    "operations": [
+                      "create",
+                      "update",
+                      "delete",
+                      "read"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "primaryKeyInfo": {
+            "isCustomPrimaryKey": false,
+            "primaryKeyFieldName": "id",
+            "sortKeyFieldNames": []
+          }
         }
       },
-      "enums": {},
-      "nonModels": {}
+      "enums": {
+        "CustomerEngagementStage": {
+          "name": "CustomerEngagementStage",
+          "values": [
+            "PROSPECT",
+            "INTERESTED",
+            "PURCHASED"
+          ]
+        }
+      },
+      "nonModels": {
+        "CustomerLocation": {
+          "name": "CustomerLocation",
+          "fields": {
+            "lat": {
+              "name": "lat",
+              "isArray": false,
+              "type": "Float",
+              "isRequired": true,
+              "attributes": []
+            },
+            "long": {
+              "name": "long",
+              "isArray": false,
+              "type": "Float",
+              "isRequired": true,
+              "attributes": []
+            }
+          }
+        }
+      }
     }
   },
   "version": "1"

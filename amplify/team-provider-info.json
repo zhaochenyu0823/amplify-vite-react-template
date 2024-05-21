@@ -30,7 +30,8 @@
       },
       "auth": {
         "amplifyreactzcyd2236060": {},
-        "amplifyreactzcyb1903ffe": {}
+        "amplifyreactzcyb1903ffe": {},
+        "userPoolGroups": {}
       }
     }
   }
