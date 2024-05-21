@@ -20,6 +20,14 @@ const schema = a.schema({
       phone: a.string(),
     }).identifier(["userId"]),
     
+    UserAddress2: a
+    .model({
+      userId: a.id().required(),
+      name: a.string(),
+      address: a.string(),
+      phone: a.string(),
+    }).identifier(["userId"]),
+    
     Customer: a
       .model({
         customerId: a.id().required(),
