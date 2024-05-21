@@ -1,6 +1,7 @@
 
-import Inform from '../pages/Inform';
-import App from '../pages/App';
+import Inform from './Inform';
+import App from './App';
+import AddressList from './AddressList';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { MenuExample } from './TestReact';
 import { Breadcrumbs, Card, Grid } from '@aws-amplify/ui-react';
@@ -45,6 +46,12 @@ const NavBar = () => {
             </Breadcrumbs.Link>
             <Breadcrumbs.Separator />
           </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href='/addressList' >
+              AddressList
+            </Breadcrumbs.Link>
+            <Breadcrumbs.Separator />
+          </Breadcrumbs.Item>
         </Breadcrumbs.Container>
       </Card>
 
@@ -58,6 +65,7 @@ const NavBar = () => {
             <Route path="/app" element={<App />} />
             <Route path="/inform" element={<Inform />} />
             <Route path="/test" element={<MenuExample />} />
+           <Route path="/addressList" element={<AddressList />} />
           </Routes>
         </Router>
       </Card>
