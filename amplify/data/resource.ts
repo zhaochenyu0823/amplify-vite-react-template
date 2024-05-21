@@ -11,6 +11,15 @@ const schema = a.schema({
       content: a.string(),
       name:a.string(),
     }),
+
+    UserAddress: a
+    .model({
+      userId: a.id().required(),
+      name: a.string(),
+      address: a.string(),
+      phone: a.string(),
+    }).identifier(["userId"]),
+    
     Customer: a
       .model({
         customerId: a.id().required(),
